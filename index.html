@@ -1,1 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pookieee 💜❤️</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                background: linear-gradient(45deg, #9c27b0, #e91e63);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                transition: background 5s ease;
+                overflow: hidden;
+                position: relative;
+                animation: backgroundAnimation 10s infinite alternate;
+            }
 
+            @keyframes backgroundAnimation {
+                0% { background: linear-gradient(45deg, #9c27b0, #e91e63); }
+                25% { background: linear-gradient(45deg, #e91e63, #9c27b0); }
+                50% { background: linear-gradient(45deg, #9c27b0, #f06292); }
+                75% { background: linear-gradient(45deg, #e91e63, #f06292); }
+                100% { background: linear-gradient(45deg, #f06292, #9c27b0); }
+            }
+
+            #cover-page {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                text-align: center;
+                z-index: 10;
+                position: relative;
+            }
+
+            #cover-page h1 {
+                font-size: 36px;
+                color: white;
+                margin-bottom: 20px;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+            }
+
+            #cover-page button {
+                padding: 15px 40px;
+                background-color: #e91e63;
+                border: none;
+                border-radius: 25px;
+                font-size: 20px;
+                color: white;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.3s;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            #cover-page button:hover {
+                background-color: #f06292;
+                transform: scale(1.1);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            }
+
+            #photo-changer-page {
+                display: none;
+                text-align: center;
+                position: relative;
+                z-index: 20;
+            }
+
+            #title {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 10px;
+                font-family: Arial, sans-serif;
+                color: white;
+            }
+
+            #photo-section {
+                text-align: center;
+                margin-bottom: 20px;
+                position: relative;
+            }
+
+            #display-photo {
+                width: 300px;
+                height: 300px;
+                transition: opacity 0.5s ease;
+                opacity: 1;
+            }
+
+            #photo-selector {
+                margin-top: 20px;
+                padding: 12px;
+                font-size: 18px;
+                border: none;
+                border-radius: 10px;
+                background-color: #e91e63;
+                color: #fff;
+                width: 220px;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            #photo-selector:hover {
+                background-color: #f06292;
+                transform: scale(1.05);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Balloon Styles */
+            .balloon {
+                position: absolute;
+                bottom: -100px;
+                border-radius: 50%;
+                animation: floatUp 3s ease-in-out forwards;
+            }
+
+            .balloon::after {
+                content: "";
+                position: absolute;
+                bottom: -20px;
+                left: 50%;
+                width: 2px;
+                height: 30px;
+                background-color: white;
+                transform: translateX(-50%);
+            }
+
+            @keyframes floatUp {
+                0% { transform: translateY(0); opacity: 1; }
+                100% { transform: translateY(-120vh); opacity: 0; }
+            }
+
+            /* Heart Animation */
+            .heart {
+                position: absolute;
+                bottom: 0;
+                opacity: 0.9;
+                animation: floatHeart 3s linear infinite;
+            }
+
+            @keyframes floatHeart {
+                0% { transform: translateY(0) scale(1); opacity: 1; }
+                100% { transform: translateY(-150vh) scale(1.5); opacity: 0; }
+            }
+
+            /* Particle Effects */
+            #particles-js {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+            }
+
+            /* Secret Button Styles */
+            #secret-button {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                padding: 10px 20px;
+                background-color: #ff3385;
+                border: none;
+                border-radius: 20px;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s, background-color 0.3s;
+                display: none;
+            }
+
+            #secret-button:hover {
+                background-color: #ff0066;
+                transform: scale(1.1);
+            }
+
+            /* Popup Styles */
+            #popup {
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: white;
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                text-align: center;
+                animation: popupFadeIn 0.5s ease-in-out;
+                z-index: 1000;
+            }
+
+            @keyframes popupFadeIn {
+                0% { opacity: 0; transform: translate(-50%, -60%); }
+                100% { opacity: 1; transform: translate(-50%, -50%); }
+            }
+
+            #popup h2 {
+                font-size: 24px;
+                color: #ff3385;
+                margin-bottom: 10px;
+            }
+
+            #popup p {
+                font-size: 18px;
+                color: #333;
+            }
+
+            #popup button {
+                padding: 10px 20px;
+                background-color: #ff3385;
+                border: none;
+                border-radius: 10px;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+
+            #popup button:hover {
+                background-color: #ff0066;
+            }
+
+            /* Broken Heart Animation */
+            #broken-heart {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 200px;
+                color: #ff4d6d;
+                opacity: 0;
+                display: none;
+                animation: fadeInOut 2s ease-in-out;
+                z-index: 1000;
+            }
+
+            @keyframes fadeInOut {
+                0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+                50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="particles-js"></div>
+
+        <div id="cover-page">
+            <div>
+                <h1>Welcome to my হৃদয় :3</h1>
+                <button id="start-btn">Click meee ^.^</button>
+            </div>
+        </div>
+
+        <div id="photo-changer-page">
+            <div id="title">
+                <h3><b><i>Visual Representation of my heart:</i></b></h3>
+            </div>
+            <div id="photo-section">
+                <img id="display-photo" src="https://raw.githubusercontent.com/fardinnuman/forroshni/refs/heads/main/photo1.jpg" alt="Photo">
+            </div>
+            <select id="photo-selector" onchange="changePhoto()">
+                <option value="https://raw.githubusercontent.com/fardinnuman/forroshni/refs/heads/main/photo1.jpg">144p (Very low quality)</option>
+                <option value="https://raw.githubusercontent.com/fardinnuman/forroshni/refs/heads/main/photo2.jpg">240p (Low quality)</option>
+                <option value="https://raw.githubusercontent.com/fardinnuman/forroshni/refs/heads/main/photo3.jpg">720p (Medium quality)</option>
+                <option value="https://raw.githubusercontent.com/fardinnuman/forroshni/refs/heads/main/photo4.jpg">1080p (High quality)</option>
+            </select>
+        </div>
+
+
+        <button id="secret-button">👀 Secret Button</button>
+
+
+        <div id="popup">
+            <h2>Hehe 🙂</h2>
+            <p><h3>Ken dilam? Emnei dilam 🙂<br>
+			   Didn't like? Angry on me? Onek rag uthtache na?<br>
+			   Okay eije ne here is a button below to break my heart 🙁</h3></p>
+         
+			<button id="break-heart-button">BREAK 😡🦵<br></button>
+			
+			<p><h5><b><i>⚠️Caution: Only click if you wanna break my heartuuuu 😔</i></b></h5></P>
+        </div> 
+
+        <div id="broken-heart">😭💔</div>
+
+        <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+        <script>
+            particlesJS("particles-js", {
+                particles: {
+                    number: {
+                        value: 150,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                    size: {
+                        value: 3,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 2,
+                            size_min: 0.3,
+                            sync: false
+                        }
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false,
+                        attract: {
+                            enable: true,
+                            rotateX: 600,
+                            rotateY: 1200
+                        }
+                    },
+                    shape: {
+                        type: "circle",
+                    },
+                    opacity: {
+                        value: 0.7,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 1,
+                            opacity_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    color: {
+                        value: ["#9c27b0", "#e91e63", "#f06292", "#f48fb1", "#d81b60"]
+                    }
+                },
+                interactivity: {
+                    detect_on: "window",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "bubble"
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "push"
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        bubble: {
+                            distance: 200,
+                            size: 6,
+                            duration: 2,
+                            opacity: 0.8,
+                            speed: 3
+                        },
+                        push: {
+                            particles_nb: 4
+                        },
+                        grab: {
+                            distance: 200,
+                            line_linked: {
+                                opacity: 1
+                            }
+                        }
+                    }
+                },
+                retina_detect: true
+            });
+
+            document.getElementById("start-btn").onclick = function() {
+                document.getElementById("cover-page").style.display = "none";
+                document.getElementById("photo-changer-page").style.display = "block";
+            }
+
+            function changePhoto() {
+                var selector = document.getElementById("photo-selector");
+                var displayPhoto = document.getElementById("display-photo");
+
+                displayPhoto.style.opacity = 0;
+
+                setTimeout(function() {
+
+                    displayPhoto.src = selector.value;
+
+                    displayPhoto.style.opacity = 1;
+
+                    if (selector.value.includes("photo4.jpg")) {
+                        createBalloons();
+                        createHearts();
+                        document.getElementById("secret-button").style.display = "block";
+                    }
+                }, 500);
+            }
+
+            function createBalloons() {
+                for (let i = 0; i < 20; i++) { 
+                    let balloon = document.createElement('div');
+                    balloon.classList.add('balloon');
+                    balloon.style.left = `${Math.random() * 100}vw`;
+
+
+                    let balloonSize = Math.random() * 50 + 30;
+                    balloon.style.width = `${balloonSize}px`;
+                    balloon.style.height = `${balloonSize * 1.4}px`;
+
+                    balloon.style.animationDuration = `${Math.random() * 1 + 3}s`;
+                    balloon.style.backgroundColor = getRandomColor();
+                    document.body.appendChild(balloon);
+                }
+            }
+
+
+            function createHearts() {
+                for (let i = 0; i < 20; i++) { 
+                    let heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '❤️';
+
+                    let heartSize = Math.random() * 25 + 15;
+                    heart.style.fontSize = `${heartSize}px`;
+
+                    heart.style.left = `${Math.random() * 100}vw`;
+                    heart.style.animationDuration = `${Math.random() * 1 + 3}s`;
+                    document.body.appendChild(heart);
+                }
+            }
+
+
+            function getRandomColor() {
+                const colors = [
+                    '#FF5733',
+                    '#33FF57',
+                    '#3357FF',
+                    '#FF33A1',
+                    '#33FFF5',
+                    '#F5FF33',
+                    '#8A33FF',
+                    '#FF8A33',
+                    '#33FF8A',
+                    '#FF3333',
+					
+					
+                ];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+
+
+            document.getElementById("secret-button").onclick = function() {
+
+                document.getElementById("popup").style.display = "block";
+            }
+
+            document.getElementById("break-heart-button").onclick = function() {
+
+                document.getElementById("popup").style.display = "none";
+
+
+                const brokenHeart = document.getElementById("broken-heart");
+                brokenHeart.style.display = "block";
+                brokenHeart.style.opacity = "1";
+
+                setTimeout(() => {
+                    brokenHeart.style.display = "none";
+                }, 2000);
+            }
+        </script>
+    </body>
+</html>
