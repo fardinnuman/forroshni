@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pookieee 💜❤️</title>
+        <title>Pookieee 🖤🤍💙💜</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
                 margin: 0;
                 padding: 0;
                 height: 100vh;
-                background: linear-gradient(45deg, #9c27b0, #e91e63);
+                background: linear-gradient(45deg, #000000, #2E0249, #570A57, #0A043C);
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -22,11 +22,11 @@
             }
 
             @keyframes backgroundAnimation {
-                0% { background: linear-gradient(45deg, #9c27b0, #e91e63); }
-                25% { background: linear-gradient(45deg, #e91e63, #9c27b0); }
-                50% { background: linear-gradient(45deg, #9c27b0, #f06292); }
-                75% { background: linear-gradient(45deg, #e91e63, #f06292); }
-                100% { background: linear-gradient(45deg, #f06292, #9c27b0); }
+                0% { background: linear-gradient(45deg, #000000, #2E0249, #570A57, #0A043C); }
+                25% { background: linear-gradient(45deg, #2E0249, #570A57, #0A043C, #000000); }
+                50% { background: linear-gradient(45deg, #570A57, #0A043C, #000000, #2E0249); }
+                75% { background: linear-gradient(45deg, #0A043C, #000000, #2E0249, #570A57); }
+                100% { background: linear-gradient(45deg, #000000, #2E0249, #570A57, #0A043C); }
             }
 
             #cover-page {
@@ -48,7 +48,7 @@
 
             #cover-page button {
                 padding: 15px 40px;
-                background-color: #e91e63;
+                background-color: #6C63FF;
                 border: none;
                 border-radius: 25px;
                 font-size: 20px;
@@ -59,9 +59,28 @@
             }
 
             #cover-page button:hover {
-                background-color: #f06292;
+                background-color: #8A7CFF;
                 transform: scale(1.1);
                 box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            }
+
+            #click-click-button {
+                position: absolute;
+                top: 20px;
+                padding: 10px 20px;
+                background-color: #6C63FF;
+                border: none;
+                border-radius: 20px;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s, background-color 0.3s;
+            }
+
+            #click-click-button:hover {
+                background-color: #8A7CFF;
+                transform: scale(1.1);
             }
 
             #photo-changer-page {
@@ -98,7 +117,7 @@
                 font-size: 18px;
                 border: none;
                 border-radius: 10px;
-                background-color: #e91e63;
+                background-color: #6C63FF;
                 color: #fff;
                 width: 220px;
                 cursor: pointer;
@@ -107,7 +126,7 @@
             }
 
             #photo-selector:hover {
-                background-color: #f06292;
+                background-color: #8A7CFF;
                 transform: scale(1.05);
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             }
@@ -136,7 +155,7 @@
                 100% { transform: translateY(-120vh); opacity: 0; }
             }
 
-            /* Heart Animation */
+  
             .heart {
                 position: absolute;
                 bottom: 0;
@@ -149,7 +168,7 @@
                 100% { transform: translateY(-150vh) scale(1.5); opacity: 0; }
             }
 
-            /* Particle Effects */
+
             #particles-js {
                 position: absolute;
                 top: 0;
@@ -159,13 +178,13 @@
                 z-index: 0;
             }
 
-            /* Secret Button Styles */
+ 
             #secret-button {
                 position: fixed;
                 bottom: 20px;
                 right: 20px;
                 padding: 10px 20px;
-                background-color: #ff3385;
+                background-color: #8A7CFF;
                 border: none;
                 border-radius: 20px;
                 color: white;
@@ -177,11 +196,11 @@
             }
 
             #secret-button:hover {
-                background-color: #ff0066;
+                background-color: #6C63FF;
                 transform: scale(1.1);
             }
 
-            /* Popup Styles */
+
             #popup {
                 display: none;
                 position: fixed;
@@ -204,7 +223,7 @@
 
             #popup h2 {
                 font-size: 24px;
-                color: #ff3385;
+                color: #6C63FF;
                 margin-bottom: 10px;
             }
 
@@ -215,7 +234,7 @@
 
             #popup button {
                 padding: 10px 20px;
-                background-color: #ff3385;
+                background-color: #6C63FF;
                 border: none;
                 border-radius: 10px;
                 color: white;
@@ -225,7 +244,48 @@
             }
 
             #popup button:hover {
-                background-color: #ff0066;
+                background-color: #8A7CFF;
+            }
+
+            #new-popup {
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: white;
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                text-align: center;
+                animation: popupFadeIn 0.5s ease-in-out;
+                z-index: 1000;
+            }
+
+            #new-popup h2 {
+                font-size: 24px;
+                color: #6C63FF;
+                margin-bottom: 10px;
+            }
+
+            #new-popup p {
+                font-size: 18px;
+                color: #333;
+            }
+
+            #new-popup button {
+                padding: 10px 20px;
+                background-color: #6C63FF;
+                border: none;
+                border-radius: 10px;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+
+            #new-popup button:hover {
+                background-color: #8A7CFF;
             }
 
             /* Broken Heart Animation */
@@ -253,9 +313,10 @@
         <div id="particles-js"></div>
 
         <div id="cover-page">
+            <button id="click-click-button">143</button>
             <div>
                 <h1>Welcome to my হৃদয় :3</h1>
-                <button id="start-btn">Click meee ^.^</button>
+            <button id="start-btn">Click meee ^.^</button>
             </div>
         </div>
 
@@ -274,20 +335,27 @@
             </select>
         </div>
 
-
         <button id="secret-button">👀 Secret Button</button>
-
 
         <div id="popup">
             <h2>Hehe 🙂</h2>
-            <p><h3>Ken dilam? Emnei dilam 🙂<br>
-			   Didn't like? Angry on me? Onek rag uthtache na?<br>
-			   Okay eije ne here is a button below to break my heart 🙁</h3></p>
+            <p><h4>Ken dilam? Emnei dilam 🙂<br>
+			   Didn't like? Still angry on me? Onek rag uthtache na?<br>Ho rag mitaitei to aichos abar bujsi 🙁<br>Okay eije ne here is a button below to break my heart 👍</h4></p>
          
-			<button id="break-heart-button">BREAK 😡🦵<br></button>
+			<button id="break-heart-button">1..2..3.. BREAK 😡🦵<br></button>
 			
-			<p><h5><b><i>⚠️Caution: Only click if you wanna break my heartuuuu 😔</i></b></h5></P>
+			<p><h5><b><i>😓Request: Vangis na please because alabuuuu 🥺</i></b></h5></P>
         </div> 
+
+        <div id="new-popup">
+            <h2>Welcome back pookieeee!</h2>
+            <p><h4>Shunlam tomar favourite colour naki black, white, blue ar purple? 😏<br>So tried to change a little bit (🤏) hehe :3</h4></p>
+			<p><h5>Oh btw, you have a great choice! But you know whose choice is better?<br>
+			Mineeeeee because it's "YOU" 😏❤</h5></p>
+			
+            <button id="close-new-popup">Impressed? And continue..</button>
+			<button id="close-new-popup">Not impressed? Valo 👍</button>
+        </div>
 
         <div id="broken-heart">😭💔</div>
 
@@ -341,7 +409,7 @@
                         }
                     },
                     color: {
-                        value: ["#9c27b0", "#e91e63", "#f06292", "#f48fb1", "#d81b60"]
+                        value: ["#FFFFFF", "#6C63FF", "#8A7CFF", "#2E0249", "#0A043C"]
                     }
                 },
                 interactivity: {
@@ -384,6 +452,14 @@
                 document.getElementById("photo-changer-page").style.display = "block";
             }
 
+            document.getElementById("click-click-button").onclick = function() {
+                document.getElementById("new-popup").style.display = "block";
+            }
+
+            document.getElementById("close-new-popup").onclick = function() {
+                document.getElementById("new-popup").style.display = "none";
+            }
+
             function changePhoto() {
                 var selector = document.getElementById("photo-selector");
                 var displayPhoto = document.getElementById("display-photo");
@@ -410,7 +486,6 @@
                     balloon.classList.add('balloon');
                     balloon.style.left = `${Math.random() * 100}vw`;
 
-
                     let balloonSize = Math.random() * 50 + 30;
                     balloon.style.width = `${balloonSize}px`;
                     balloon.style.height = `${balloonSize * 1.4}px`;
@@ -420,7 +495,6 @@
                     document.body.appendChild(balloon);
                 }
             }
-
 
             function createHearts() {
                 for (let i = 0; i < 20; i++) { 
@@ -437,35 +511,23 @@
                 }
             }
 
-
             function getRandomColor() {
                 const colors = [
-                    '#FF5733',
-                    '#33FF57',
-                    '#3357FF',
-                    '#FF33A1',
-                    '#33FFF5',
-                    '#F5FF33',
-                    '#8A33FF',
-                    '#FF8A33',
-                    '#33FF8A',
-                    '#FF3333',
-					
-					
+                    '#FFFFFF', // White
+                    '#6C63FF', // Vibrant purple-blue
+                    '#8A7CFF', // Lighter vibrant purple-blue
+                    '#2E0249', // Deep purple
+                    '#0A043C'  // Dark blue
                 ];
                 return colors[Math.floor(Math.random() * colors.length)];
             }
 
-
             document.getElementById("secret-button").onclick = function() {
-
                 document.getElementById("popup").style.display = "block";
             }
 
             document.getElementById("break-heart-button").onclick = function() {
-
                 document.getElementById("popup").style.display = "none";
-
 
                 const brokenHeart = document.getElementById("broken-heart");
                 brokenHeart.style.display = "block";
